@@ -41,6 +41,8 @@ function setup() {
   trex.addAnimation("running", trex_running);
   trex.scale = 0.5;
   
+  trex.addAnimation("trex_collided",trex_collided);
+  
   ground = createSprite(200,180,400,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
@@ -86,7 +88,7 @@ function draw() {
     }
     
      //jump when the space key is pressed
-    if(keyDown("space") && trex.y >= 359){
+    if(keyDown("space") && trex.y >= 161){
       trex.velocityY = -12 ;
    // playSound("jump.mp3");
     }
@@ -119,7 +121,7 @@ function draw() {
     cloudsGroup.setVelocityXEach(0);
     
     //change the trex animation
-    trex.addAnimation("trex_collided");
+    trex.changeAnimation("trex_collided",trex_collided);
     
     //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
